@@ -1,23 +1,22 @@
 <html>
 <div>
  Center X -2  <input id="Center X" type="range"
- min="-2" max="2" step="0.1" value="-2" />
+ min="-2" max="2" step="0.1" value="-0.5" />
 1
 </div>
 <div>
 Center Y -1<input id="Center Y" type="range"
- min="-1" max="1" step="0.1" value="-1" />
+ min="-2" max="1" step="0.1" value="0" />
 1
 </div>
 <div>
 Size 1<input id="Size" type="range"
- min="0.1" max="8" step="0.1" value="8" />
-8
+ min="0.1" max="3" step="0.1" value="0.5" />
+3
 </div>
 <script id="vertex-shader" type="x-shader/x-vertex">
 
 attribute  vec4 vPosition;
-
 
 void main() 
 {
@@ -56,6 +55,7 @@ void main()
    float ax=0.0, ay=0.0;
    float bx, by;
 
+   float speed;
 
    for ( int k = 0; k < max; k++ ) {
             
@@ -67,17 +67,30 @@ void main()
             ay = by+y;
             v = sqrt(ax*ax+ay*ay);
             
-            if ( v > 4.0 ) break;      /* assume not in set if mag > 4 */
+            if ( v > 2.0) {
+              speed = float(k);
+              break;
+            }       /* assume not in set if mag > 4 */
         }
         
         // assign gray level to point based on its magnitude */
 
         //if ( v > 1.0 ) v = 1.0;        /* clamp if > 1 */
-        v = min(v, 1.0);
-        gl_FragColor.r = v;
-        gl_FragColor.g = 0.5* sin( 2.0*PI*v) + 1.0;
-        gl_FragColor.b = 1.0-v;
-        gl_FragColor.a = 1.0;
+        //v = min(v, 1.0);
+        float red = cos(PI * speed);
+        float green = speed * 0.1;
+        //float blue = 1.0 - sin(PI * speed);
+        // More green color in set
+        float blue = sin(PI * speed);
+        // 0.5* sin( 2.0*PI*v) + 1.0
+        if(v < 1.0){
+          gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
+        }else{
+          gl_FragColor.r = red;
+          gl_FragColor.g = green;
+          gl_FragColor.b = blue;
+          gl_FragColor.a = 1.0;
+        }
 } 
 </script>
 

@@ -10,9 +10,9 @@ var gl;
 
 /* N x M array to be generated */
 
-var scale = 0.125;
-var cx = -2.0;             /* center of window in complex plane */
-var cy = -1.0;
+var scale = 0.5;
+var cx = -.5;             /* center of window in complex plane */
+var cy = 0.0;
 var max = 100;             /* number of interations per point */
 
 var n = 1024;
@@ -35,12 +35,12 @@ onload = function init() {
     
     var points = [
        
-    vec4(0.0, 0.0, 0.0, 1.0),
-	vec4(0.0, 1.0, 0.0, 1.0),
+    vec4(-1.0, -1.0, 0.0, 1.0),
+	vec4(-1.0, 1.0, 0.0, 1.0),
 	vec4(1.0, 1.0, 0.0, 1.0),
     vec4(1.0, 1.0, 0.0, 1.0),
-	vec4(1.0, 0.0, 0.0, 1.0),
-    vec4(0.0, 0.0, 0.0, 1.0)
+	vec4(1.0, -1.0, 0.0, 1.0),
+    vec4(-1.0, -1.0, 0.0, 1.0)
 ];
 
     // Load shaders and use the resulting shader program
@@ -80,10 +80,16 @@ onload = function init() {
     
     gl.viewport(0, 0, canvas.width, canvas.height);
     render();
+
+    canvas.addEventListener("mousedown", function(){
+        console.log( 2 * event.clientX / canvas.width - 1, 1 - 2 * event.clientY / canvas.height);
+        gl.uniform1f( gl.getUniformLocation(program, "cx"), 2 * event.clientX / canvas.width - 1);
+        gl.uniform1f( gl.getUniformLocation(program, "cy"), 1 - 2 * event.clientY / canvas.height);
+        gl.uniform1f( gl.getUniformLocation(program, "scale"), 1.5);
+    })
 }
 
 //----------------------------------------------------------------------------
-
 
 var render = function() {
     gl.clear( gl.COLOR_BUFFER_BIT );
