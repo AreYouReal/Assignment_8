@@ -16,9 +16,13 @@ var cy = 0.0;
 var max = 100;             /* number of interations per point */
 
 var n = 1024;
-var m =1024;
+var m = 1024;
 
 var program;
+
+var prevCx = [];
+var prevCy = [];
+var prevScale = [];
 
 //----------------------------------------------------------------------------
 
@@ -32,16 +36,14 @@ onload = function init() {
 
 
     // Create and initialize a buffer object
-    
-    var points = [
-       
+    // I've changed the point - so now we use all canvas area.
+    var points = [  
     vec4(-1.0, -1.0, 0.0, 1.0),
 	vec4(-1.0, 1.0, 0.0, 1.0),
 	vec4(1.0, 1.0, 0.0, 1.0),
     vec4(1.0, 1.0, 0.0, 1.0),
 	vec4(1.0, -1.0, 0.0, 1.0),
-    vec4(-1.0, -1.0, 0.0, 1.0)
-];
+    vec4(-1.0, -1.0, 0.0, 1.0) ];
 
     // Load shaders and use the resulting shader program
     
@@ -61,7 +63,7 @@ onload = function init() {
     gl.uniform1f( gl.getUniformLocation(program, "cx"), cx);
     gl.uniform1f( gl.getUniformLocation(program, "cy"), cy);
 
-
+/*
     document.getElementById("Center X").onchange = function() {
         cx = event.srcElement.value;
         gl.uniform1f( gl.getUniformLocation(program, "cx"), cx);
@@ -73,20 +75,25 @@ onload = function init() {
     document.getElementById("Size").onchange = function() {
        scale = 1.0/event.srcElement.value;
        gl.uniform1f( gl.getUniformLocation(program, "scale"), scale);
-    };
+    };*/
 
-       
     gl.clearColor( 1.0, 1.0, 1.0, 1.0 );
     
     gl.viewport(0, 0, canvas.width, canvas.height);
     render();
 
     canvas.addEventListener("mousedown", function(){
-        console.log( 2 * event.clientX / canvas.width - 1, 1 - 2 * event.clientY / canvas.height);
-        gl.uniform1f( gl.getUniformLocation(program, "cx"), 2 * event.clientX / canvas.width - 1);
-        gl.uniform1f( gl.getUniformLocation(program, "cy"), 1 - 2 * event.clientY / canvas.height);
-        gl.uniform1f( gl.getUniformLocation(program, "scale"), 1.5);
-    })
+        if(!window.event.shiftKey){
+            gl.uniform1f( gl.getUniformLocation(program, "cx"), 2 * event.clientX / canvas.width - 1 + cx);
+            gl.uniform1f( gl.getUniformLocation(program, "cy"), 1 - 2 * event.clientY / canvas.height);
+            gl.uniform1f( gl.getUniformLocation(program, "scale"), 1.0);
+        }else{
+            //console.log( 2 * event.clientX / canvas.width - 1, 1 - 2 * event.clientY / canvas.height);
+            gl.uniform1f( gl.getUniformLocation(program, "cx"), -0.5);
+            gl.uniform1f( gl.getUniformLocation(program, "cy"), 0.0);
+            gl.uniform1f( gl.getUniformLocation(program, "scale"),0.5);}
+
+    });
 }
 
 //----------------------------------------------------------------------------

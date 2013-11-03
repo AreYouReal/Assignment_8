@@ -8,8 +8,8 @@
     </list>
     <ignored path="Assignment_8.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="294024d2-55b3-4c97-9bf4-b3c93e22e5ac" time="1383497400646" ignored="false" />
-    <file path="/mandelbrot2.js" changelist="294024d2-55b3-4c97-9bf4-b3c93e22e5ac" time="1383414159837" ignored="false" />
+    <file path="/Dummy.txt" changelist="294024d2-55b3-4c97-9bf4-b3c93e22e5ac" time="1383499447209" ignored="false" />
+    <file path="/mandelbrot2.js" changelist="294024d2-55b3-4c97-9bf4-b3c93e22e5ac" time="1383499721846" ignored="false" />
     <file path="/mandelbrot2.html" changelist="294024d2-55b3-4c97-9bf4-b3c93e22e5ac" time="1383413952721" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +33,7 @@
       <file leaf-file-name="mandelbrot2.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="45" selection-start="2160" selection-end="2160" vertical-scroll-proportion="0.34676006">
+            <state line="10" column="30" selection-start="220" selection-end="220" vertical-scroll-proportion="-0.038528897">
               <folding />
             </state>
           </provider>
@@ -42,7 +42,7 @@
       <file leaf-file-name="mandelbrot2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="68" selection-start="2678" selection-end="2678" vertical-scroll-proportion="0.0">
+            <state line="66" column="44" selection-start="1765" selection-end="1765" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -66,8 +66,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/MandelbrotSet/mandelbrot2.js" />
         <option value="$PROJECT_DIR$/MandelbrotSet/mandelbrot2.html" />
+        <option value="$PROJECT_DIR$/MandelbrotSet/mandelbrot2.js" />
       </list>
     </option>
   </component>
@@ -103,6 +103,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -151,7 +152,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -177,6 +177,23 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="294024d2-55b3-4c97-9bf4-b3c93e22e5ac" name="Default" comment="" />
@@ -270,6 +287,27 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="65" selection-start="2480" selection-end="2480" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="45" selection-start="2160" selection-end="2160" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="97" column="45" selection-start="2268" selection-end="2268" vertical-scroll-proportion="0.0">
           <folding />
         </state>
@@ -282,16 +320,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.html">
+    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="45" selection-start="2160" selection-end="2160" vertical-scroll-proportion="0.34676006">
+        <state line="66" column="44" selection-start="1765" selection-end="1765" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.js">
+    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="68" selection-start="2678" selection-end="2678" vertical-scroll-proportion="0.0">
+        <state line="10" column="30" selection-start="220" selection-end="220" vertical-scroll-proportion="-0.038528897">
           <folding />
         </state>
       </provider>
