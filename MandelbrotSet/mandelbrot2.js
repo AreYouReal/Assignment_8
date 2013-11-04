@@ -10,7 +10,7 @@ var gl;
 
 /* N x M array to be generated */
 
-var scale = 0.5;
+var scale = 1.0;
 var cx = -.5;             /* center of window in complex plane */
 var cy = 0.0;
 var max = 100;             /* number of interations per point */
@@ -20,9 +20,12 @@ var m = 1024;
 
 var program;
 
+// Previous values for "back steping" posibility
 var prevCx = [];
 var prevCy = [];
 var prevScale = [];
+var SCALE_FACTOR = 2.5;
+var colorSheme = 0;
 
 //----------------------------------------------------------------------------
 
@@ -62,37 +65,59 @@ onload = function init() {
     gl.uniform1f( gl.getUniformLocation(program, "scale"), scale);
     gl.uniform1f( gl.getUniformLocation(program, "cx"), cx);
     gl.uniform1f( gl.getUniformLocation(program, "cy"), cy);
+    gl.uniform1i( gl.getUniformLocation(program, "colorSheme"), colorSheme);
 
-/*
-    document.getElementById("Center X").onchange = function() {
-        cx = event.srcElement.value;
-        gl.uniform1f( gl.getUniformLocation(program, "cx"), cx);
+    document.getElementById("ColorSheme").onchange = function() {
+       colorSheme = event.srcElement.value;
+       gl.uniform1i( gl.getUniformLocation(program, "colorSheme"), colorSheme);
     };
-    document.getElementById("Center Y").onchange = function() {
-        cy = event.srcElement.value;
-        gl.uniform1f( gl.getUniformLocation(program, "cy"), cy);
-    };
-    document.getElementById("Size").onchange = function() {
-       scale = 1.0/event.srcElement.value;
-       gl.uniform1f( gl.getUniformLocation(program, "scale"), scale);
-    };*/
 
     gl.clearColor( 1.0, 1.0, 1.0, 1.0 );
     
     gl.viewport(0, 0, canvas.width, canvas.height);
     render();
 
+    // Mouse listener - catching the mouse click and mouse shift click.
+    // When mouse shift click is detected - step back.
     canvas.addEventListener("mousedown", function(){
+        var currentCx, currentCy, currentScale;
         if(!window.event.shiftKey){
-            gl.uniform1f( gl.getUniformLocation(program, "cx"), 2 * event.clientX / canvas.width - 1 + cx);
-            gl.uniform1f( gl.getUniformLocation(program, "cy"), 1 - 2 * event.clientY / canvas.height);
-            gl.uniform1f( gl.getUniformLocation(program, "scale"), 1.0);
-        }else{
-            //console.log( 2 * event.clientX / canvas.width - 1, 1 - 2 * event.clientY / canvas.height);
-            gl.uniform1f( gl.getUniformLocation(program, "cx"), -0.5);
-            gl.uniform1f( gl.getUniformLocation(program, "cy"), 0.0);
-            gl.uniform1f( gl.getUniformLocation(program, "scale"),0.5);}
+            var newCx = cx;
+            var newCy = 0.0;
+            var previousScale = 1.0;
+            if(prevCx.length > 0){
+                newCx = prevCx[prevCx.length - 1];
+                newCy = prevCy[prevCy.length - 1];
+                previousScale = prevScale.length * SCALE_FACTOR;
+            }
+            currentCx = ( 2 * event.clientX / ( canvas.width ) - 1 ) / previousScale + newCx;
+            currentCy = ( 1 - 2 * event.clientY / ( canvas.height ) ) / previousScale + newCy;
+            currentScale = SCALE_FACTOR + previousScale;
 
+            prevCx.push(currentCx);
+            prevCy.push(currentCy);
+            prevScale.push(currentScale);
+            gl.uniform1f( gl.getUniformLocation(program, "cx"), currentCx);
+            gl.uniform1f( gl.getUniformLocation(program, "cy"), currentCy);
+            gl.uniform1f( gl.getUniformLocation(program, "scale"), currentScale);
+        }else{
+            if(prevCx.length > 1 && prevCy.length > 1 && prevScale.length > 1){
+                currentCx = prevCx.pop();
+                currentCy = prevCy.pop();
+                currentScale = prevScale.pop();
+                currentCx = prevCx[prevCx.length - 1];
+                currentCy = prevCy[prevCy.length - 1];
+                currentScale = prevScale[prevScale.length - 1];
+            }else{
+                currentCx = cx;
+                currentCy = cy;
+                currentScale = 1.0;
+                prevCx.length = prevCy.length = prevScale.length = 0;
+            }
+            gl.uniform1f( gl.getUniformLocation(program, "cx"), currentCx);
+            gl.uniform1f( gl.getUniformLocation(program, "cy"), currentCy);
+            gl.uniform1f( gl.getUniformLocation(program, "scale"), currentScale);
+        }
     });
 }
 

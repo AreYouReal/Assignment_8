@@ -8,9 +8,9 @@
     </list>
     <ignored path="Assignment_8.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="294024d2-55b3-4c97-9bf4-b3c93e22e5ac" time="1383499447209" ignored="false" />
-    <file path="/mandelbrot2.js" changelist="294024d2-55b3-4c97-9bf4-b3c93e22e5ac" time="1383499721846" ignored="false" />
-    <file path="/mandelbrot2.html" changelist="294024d2-55b3-4c97-9bf4-b3c93e22e5ac" time="1383413952721" ignored="false" />
+    <file path="/Dummy.txt" changelist="294024d2-55b3-4c97-9bf4-b3c93e22e5ac" time="1383548871213" ignored="false" />
+    <file path="/mandelbrot2.js" changelist="294024d2-55b3-4c97-9bf4-b3c93e22e5ac" time="1383548882453" ignored="false" />
+    <file path="/mandelbrot2.html" changelist="294024d2-55b3-4c97-9bf4-b3c93e22e5ac" time="1383544367260" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,19 +30,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="mandelbrot2.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mandelbrot2.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="30" selection-start="220" selection-end="220" vertical-scroll-proportion="-0.038528897">
+            <state line="67" column="38" selection-start="1592" selection-end="1592" vertical-scroll-proportion="-0.7096774">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mandelbrot2.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="mandelbrot2.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="44" selection-start="1765" selection-end="1765" vertical-scroll-proportion="0.0">
+            <state line="103" column="28" selection-start="3240" selection-end="3246" vertical-scroll-proportion="0.2192691">
               <folding />
             </state>
           </provider>
@@ -294,6 +294,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="44" selection-start="1765" selection-end="1765" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="44" selection-start="1765" selection-end="1765" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="65" selection-start="2480" selection-end="2480" vertical-scroll-proportion="0.0">
           <folding />
         </state>
@@ -320,16 +348,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.js">
+    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="44" selection-start="1765" selection-end="1765" vertical-scroll-proportion="0.0">
+        <state line="67" column="38" selection-start="1592" selection-end="1592" vertical-scroll-proportion="-0.7096774">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.html">
+    <entry file="file://$PROJECT_DIR$/MandelbrotSet/mandelbrot2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="30" selection-start="220" selection-end="220" vertical-scroll-proportion="-0.038528897">
+        <state line="103" column="28" selection-start="3240" selection-end="3246" vertical-scroll-proportion="0.2192691">
           <folding />
         </state>
       </provider>

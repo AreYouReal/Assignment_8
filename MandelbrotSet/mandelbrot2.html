@@ -1,19 +1,9 @@
 <html>
-<!--<div>
- Center X -2  <input id="Center X" type="range"
- min="-2" max="2" step="0.1" value="-0.5" />
-1
-</div>
 <div>
-Center Y -1<input id="Center Y" type="range"
- min="-2" max="1" step="0.1" value="0" />
-1
-</div>
-<div>
-Size 1<input id="Size" type="range"
- min="0.1" max="3" step="0.1" value="0.5" />
+Color Scheme 1<input id="ColorSheme" type="range"
+ min="0" max="2" step="1" value="0" />
 3
-</div>-->
+</div>
 
 <script id="vertex-shader" type="x-shader/x-vertex">
 
@@ -29,61 +19,64 @@ void main()
 
 precision mediump float;
 
-uniform float cx;
+// Uniform variables from javascript program
+uniform float cx;   
 uniform float cy; 
-
 uniform float scale;
+uniform int colorSheme;
 
-float height;
-float width;
-
-void main() 
-{ 
-   //float height = 0.5;          /* size of window in complex plane */
-   //float width = 0.5;
-   
+void main() { 
    const int max = 100;             /* number of interations per point */
    const float PI = 3.14159;
    
-   float n = 500.0;           // Size of the canvas in the first dimension 
+   float n = 500.0;           // Size of the canvas in the first dimension
    float m = 500.0;           // The size of the canvas in the second dimension 
-   float v;                   // VAlue of the set function
+   float v;                   // Value of the set function
 
+   // Translate fragment position into C-plane coordinates
+   float x = 2.0 * gl_FragCoord.x / ( n * scale) - 1.0 / scale + cx;
+   float y = 2.0 * gl_FragCoord.y / ( m * scale) - 1.0 / scale + cy;
    
-   float x = gl_FragCoord.x  /(n*scale) + cx - 1.0 / (2.0*scale);
-   float y = gl_FragCoord.y/(m*scale) + cy - 1.0 / (2.0*scale);
-   
+   // Variables for compute Mandelbrot function value
    float ax=0.0, ay=0.0;
    float bx, by;
 
+   // How fast v becomes over the 4.
    float speed;
 
    for ( int k = 0; k < max; k++ ) {
-            
 		// compute c = c^2 + p
-        
             bx  = ax*ax-ay*ay;
             by = 2.0*ax*ay;
             ax = bx+x;
             ay = by+y;
             v = sqrt(ax*ax+ay*ay);
-            
-            if ( v > 2.0) {
+            /* assume not in set if mag > 4 */
+            if ( v > 4.0) {
               speed = float(k);
               break;
-            }       /* assume not in set if mag > 4 */
+            }       
         }
-        
-        // assign gray level to point based on its magnitude */
 
-        //if ( v > 1.0 ) v = 1.0;        /* clamp if > 1 */
-        //v = min(v, 1.0);
-        float red = cos(PI * speed);
-        float green = speed * 0.1;
-        //float blue = 1.0 - sin(PI * speed);
-        // More green color in set
-        float blue = sin(PI * speed);
-        // 0.5* sin( 2.0*PI*v) + 1.0
+        // Color set according to the current color scheme 
+        float red; 
+        float green;
+        float blue;
+
+        if(colorSheme == 0){
+          red = v;
+          green = speed * 0.1;
+          blue = 1.0 - v;
+        }else if(colorSheme == 1){
+          red = cos(PI * speed);
+          green = speed * 0.1;
+          blue = speed;    
+        }else{
+          red = 0.1 * speed;
+          green = 1.0 - speed;
+          blue = sin(PI * speed);     
+        } 
+
         if(v < 1.0){
           gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
         }else{
