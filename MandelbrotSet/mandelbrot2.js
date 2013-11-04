@@ -24,7 +24,7 @@ var program;
 var prevCx = [];
 var prevCy = [];
 var prevScale = [];
-var SCALE_FACTOR = 2.5;
+var SCALE_FACTOR = 1.5;
 var colorSheme = 0;
 
 //----------------------------------------------------------------------------
